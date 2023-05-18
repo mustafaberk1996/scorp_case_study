@@ -4,7 +4,8 @@ import Person
 
 sealed class UserListState {
     object Idle:UserListState()
-    data class Success(val users:List<Person>):UserListState()
+    object Loading:UserListState()
+    object Success:UserListState()
     data class Error(val error:String?):UserListState()
     object Empty:UserListState()
 

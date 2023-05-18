@@ -20,7 +20,9 @@ class UserAdapter(private val context: Context, private val users:List<Person>):
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.tv.text = users[position].fullName
+        with(users[position]){
+            holder.tv.text = "$fullName (${id})"
+        }
     }
 
     class UserViewHolder(item: TvUserListItemBinding): RecyclerView.ViewHolder(item.root) {
